@@ -83,16 +83,6 @@ class AuthController
             'code' => 200,
             'message' => 'Vous êtes bien connectés.',
             "data" => [
-                "UID" => $userData["id"],
-                "email" => $userData["email"],
-                "username" => $userData["userName"],
-                "tel" => $userData["tel"],
-                "status" => $userData["status"],
-                "country" => $userData["country"],
-                "jwt" => $jwtToken,
-                "reff_link" => "https://www.barkachange.com/register?reff_code=" . $userData["ref_link"],
-                "reff_amount" => $userData["ref_amount"],
-                "filleuls" => $userData["reff"]
             ]
         );
         header("Content-type: application/json; charset=utf-8");
@@ -138,16 +128,6 @@ class AuthController
             'code' => 200,
             'message' => 'Votre compte a bien été créer.',
             "data" => [
-                "UID" => $newGoogleUserData[0]["id"],
-                "email" => $newGoogleUserData[0]["email"],
-                "username" => $newGoogleUserData[0]["userName"],
-                "jwt" => $jwtToken,
-                "tel" => $newGoogleUserData[0]["tel"],
-                "status" => $newGoogleUserData[0]["status"],
-                "country" => $newGoogleUserData[0]["country"],
-                "reff_link" => "https://www.barkachange.com/register?reff_code=" . $newGoogleUserData[0]["ref_link"],
-                "reff_amount" => $newGoogleUserData[0]["ref_amount"],
-                "filleuls" => $newGoogleUserData[0]["reff"]
             ]
         );
         header("Content-type: application/json; charset=utf-8");
@@ -173,7 +153,7 @@ class AuthController
             $_COOKIE['g_csrf_token'] == $_POST['g_csrf_token']
         ) {
             //Website client id in google console
-            $clientId = "26693373983-6a7vgr3rslfh2fbtq2m9huo1s2f5fi4o.apps.googleusercontent.com";
+            $clientId = "YOUR_CLIENT_ID";
             $client = new Google_Client(['client_id' => $clientId]);  // Specify the CLIENT_ID of the app that accesses the backend
 
             //User google jwt token
